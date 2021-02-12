@@ -150,8 +150,8 @@ async function listLikedAndRemoveDeletedVideos(auth) {
     items = [...items, ...response.data.items]
     counter += 1;
   }
-  const deletedItems = items.filter((item) => item.snippet.title === 'Deleted video')
-  fs.writeFileSync('videos.json', JSON.stringify(deletedItems, undefined, 2))
+  fs.writeFileSync('videos.json', JSON.stringify(items, undefined, 2))
+  const deletedItems = items.filter((item) => item.snippet.title === 'Deleted video' || item.snippet.title === "Private video")
   for (item of deletedItems) {
     console.log(item)
     await service.playlistItems.delete({
