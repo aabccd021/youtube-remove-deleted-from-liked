@@ -2,3 +2,5 @@ client_secret.json
 node_modules
 videos.json
 yarn.lock
+titles.txt
+channeld.txt

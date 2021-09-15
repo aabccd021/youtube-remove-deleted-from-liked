@@ -3,8 +3,10 @@ var readline = require('readline');
 var { google } = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 
-// If modifying these scopes, delete your previously saved credentials
-// at ~/.credentials/youtube-nodejs-quickstart.json
+// ATTENTION
+// If modifying these scopes, 
+// or if got `Error: invalid_grant`,
+// delete your previously saved credentials at ~/.credentials/youtube-nodejs-quickstart.json
 var SCOPES = [
   'https://www.googleapis.com/auth/youtube.readonly',
   'https://www.googleapis.com/auth/youtube',
@@ -16,6 +18,7 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
 var TOKEN_PATH = TOKEN_DIR + 'youtube-nodejs-quickstart.json';
 
 // Load client secrets from a local file.
+// https://developers.google.com/youtube/v3/quickstart/nodejs
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   if (err) {
     console.log('Error loading client secret file: ' + err);
